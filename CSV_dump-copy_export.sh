@@ -23,7 +23,7 @@ source "$file_dir/csv_banco.env"
 
 while read tbl; do
     echo "Tentando copiar tabela $tbl ..."
-    if psql -c "\copy public.\"$tbl\" TO '${tbl}.csv' CSV DELIMITER ';' HEADER" >/dev/null 2>>"$LOGFILEERROR" ; then
+    if psql -c "\copy public.\"$tbl\" TO '${tbl}.csv' CSV DELIMITER '$CSV_DELIMITER' HEADER" >/dev/null 2>>"$LOGFILEERROR" ; then
         echo "  -> OK (salvo em ${tbl}.csv)"
     else
         echo "  -> ERRO (não foi possível exportar $tbl)"

@@ -33,7 +33,7 @@ psql <<EOF
 CREATE TEMP TABLE tmp_import (LIKE $TABELA INCLUDING ALL);
 
 -- Copia o CSV para a temporária
-\copy tmp_import FROM '$ARQUIVO' DELIMITER ';' CSV HEADER;
+\copy tmp_import FROM '$ARQUIVO' DELIMITER '$CSV_DELIMITER' CSV HEADER;
 
 -- Faz o upsert (insere ou ignora duplicados)
 INSERT INTO $TABELA

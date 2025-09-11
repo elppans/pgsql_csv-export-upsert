@@ -47,6 +47,12 @@ sleeping 3
 ###############################################################################
 # Coleta arquivos CSV
 ###############################################################################
+
+if [[ -z "$CSV_DELIMITER" ]]; then
+  echo "Delimitador CSV não definido. Configure CSV_DELIMITER no .env"
+  exit 1
+fi
+
 FILES=( $(find "$DUMP_DIR" -maxdepth 1 -type f -name '*.csv' | sort) )
 TOTAL=${#FILES[@]}
 
@@ -79,7 +85,7 @@ for FILE in "${FILES[@]}"; do
 
     psql <<EOF
 CREATE TEMP TABLE tmp_import (LIKE $TABELA INCLUDING ALL);
-\copy tmp_import FROM '$FILE' DELIMITER ';' CSV HEADER;
+\copy tmp_import FROM '$FILE' DELIMITER '$CSV_DELIMITER' CSV HEADER;
 INSERT INTO $TABELA
 SELECT * FROM tmp_import
 ON CONFLICT DO NOTHING;

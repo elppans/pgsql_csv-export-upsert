@@ -1,20 +1,63 @@
-# pgsql_csv-export-upsert
-o arquivo `tabelas.txt` está no repositório [sh-bd](https://github.com/elppans/sh-bd);  
-Configure o arquivo `csv_banco.env` para definir o usuário, senha, nome do banco, etc.  
-Para extrair as tabelas do banco, crie um arquivo com o nome `tabelas.txt` no mesmo diretório e coloque todas as tabelas de interesse em formato de lista. O arquivo não pode ter quebra de linha com espaço no final. Então, execute o comando:
+## 📦 pgsql_csv-export-upsert
+
+Scripts para exportar e importar dados em formato CSV no PostgreSQL com suporte a *upsert* e estrutura modular.
+
+---
+
+### 📁 Pré-requisitos
+
+- PostgreSQL instalado e acessível via terminal (`psql`)
+- Arquivo `csv_banco.env` configurado com as variáveis de conexão:
+  ```bash
+  PGUSER="usuario"
+  PGPASSWORD="senha"
+  PGHOST="127.0.0.1"
+  PGDATABASE="nome_do_banco"
+  PGPORT="5432"
+  CSV_DELIMITER=";"  # ou outro delimitador usado nos seus CSVs
+  ```
+
+- Arquivo `tabelas.txt` contendo os nomes das tabelas a serem exportadas (uma por linha, sem espaços extras).  
+  Exemplo disponível no repositório [sh-bd](https://github.com/elppans/sh-bd)
+
+---
+
+### 📤 Exportar tabelas para CSV
+
+Para extrair os dados das tabelas listadas em `tabelas.txt`:
 
 ```bash
 ./CSV_dump-copy_export.sh
 ```
 
-Antes de importar as tabelas, faça um teste para ver se dá certo, com o comando:
+---
+
+### 🧪 Testar importação de um CSV
+
+Antes de fazer o *upsert*, teste a importação de um arquivo específico:
 
 ```bash
-./CSV_import-teste.sh  <nome_tabela> <arquivo.csv>
+./CSV_import-teste.sh <nome_tabela> <arquivo.csv>
 ```
 
-Se estiver certo em finalmente upar todos o CSV, faça:
+---
+
+### ⬆️ Importar com upsert (um arquivo)
+
+Se estiver tudo certo, faça o *upsert* para uma tabela específica:
 
 ```bash
-CSV_import-upsert.sh  <nome_tabela> <arquivo.csv>
+./CSV_import-upsert.sh <nome_tabela> <arquivo.csv>
 ```
+
+---
+
+### 🔁 Importar todos os CSVs do diretório
+
+Para importar todos os arquivos `.csv` presentes no diretório definido em `DUMP_DIR`:
+
+```bash
+./CSV_import-upsert-full.sh
+```
+
+---

@@ -35,7 +35,7 @@ psql <<EOF
 CREATE TEMP TABLE tmp_import (LIKE $TABELA INCLUDING ALL);
 
 -- importa o CSV para a tabela temporária
-\copy tmp_import FROM '$ARQUIVO' DELIMITER ';' CSV HEADER;
+\copy tmp_import FROM '$ARQUIVO' DELIMITER '$CSV_DELIMITER' CSV HEADER;
 
 -- mostra quantas linhas foram importadas
 SELECT count(*) AS linhas_importadas FROM tmp_import;

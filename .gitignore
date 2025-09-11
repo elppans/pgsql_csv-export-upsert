@@ -1,0 +1,13 @@
+# Ignora tudo
+*
+
+# Não ignora os arquivos específicos
+!CSV_dump-copy_export.sh
+!CSV_import-teste.sh
+!CSV_import-upsert-full.sh
+!CSV_import-upsert.sh
+!README.md
+!csv_banco.env
+
+# Não ignora o diretório raiz (necessário para que os arquivos acima sejam rastreados)
+!*/

@@ -53,11 +53,11 @@ if [[ -z "$CSV_DELIMITER" ]]; then
   exit 1
 fi
 
-FILES=( $(find "$DUMP_DIR" -maxdepth 1 -type f -name '*.csv' | sort) )
+FILES=( $(find "$file_dir" -maxdepth 1 -type f -name '*.csv' | sort) )
 TOTAL=${#FILES[@]}
 
 if [[ $TOTAL -eq 0 ]]; then
-  log_msg "Nenhum CSV encontrado em $DUMP_DIR"
+  log_msg "Nenhum CSV encontrado em $file_dir"
   exit 0
 fi
 

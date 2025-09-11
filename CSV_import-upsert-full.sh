@@ -101,11 +101,14 @@ EOF
       log_msg ">>> ERRO na importação para '$TABELA'"
       echo "$TABELA:ERRO" >> "$file_dir/LOGGERAL/status.tmp"
     fi
+
+     # Remover log de erro se estiver vazio
+    if [ ! -s "$table_log"_error ]; then
+      rm -f "$table_log"_error
+    fi
   )
 
-if [ ! -s "$table_log"_error ]; then
-  rm -f "$table_log"_error
-fi
+
 
 done
 echo -e "\n📋 Relatório final de importação:"

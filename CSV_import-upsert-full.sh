@@ -64,6 +64,8 @@ fi
 log_msg "Arquivos encontrados:"
 printf "→ %s\n" "${FILES[@]}"
 
+declare -A STATUS
+
 ###############################################################################
 # Loop de importação
 ###############################################################################
@@ -92,10 +94,12 @@ ON CONFLICT DO NOTHING;
 EOF
 
     if [ $? -eq 0 ]; then
-      log_msg ">>> Importação concluída com sucesso para '$TABELA'"
+      log_msg ">>> Importação concluída com sucesso para '$TABELA'" 
+      echo "$TABELA:OK" >> "$file_dir/LOGGERAL/status.tmp"
       psql -c "SELECT count(*) AS total_linhas FROM $TABELA;"
     else
       log_msg ">>> ERRO na importação para '$TABELA'"
+      echo "$TABELA:ERRO" >> "$file_dir/LOGGERAL/status.tmp"
     fi
   )
 
@@ -104,6 +108,19 @@ if [ ! -s "$table_log"_error ]; then
 fi
 
 done
+echo -e "\n📋 Relatório final de importação:"
+if [[ -f "$file_dir/LOGGERAL/status.tmp" ]]; then
+  while IFS=: read -r tabela status; do
+    if [[ "$status" == "OK" ]]; then
+      echo "✔️ $tabela: Importação bem-sucedida"
+    else
+      echo "❌ $tabela: Falhou na importação"
+    fi
+  done < "$file_dir/LOGGERAL/status.tmp"
+  rm -f "$file_dir/LOGGERAL/status.tmp"
+else
+  echo "Nenhuma tabela foi processada."
+fi
 
 # Remove o log de erro se estiver vazio
 if [ ! -s "$LOGFILEERROR" ]; then

@@ -98,4 +98,14 @@ EOF
       log_msg ">>> ERRO na importação para '$TABELA'"
     fi
   )
+
+if [ ! -s "$table_log"_error ]; then
+  rm -f "$table_log"_error
+fi
+
 done
+
+# Remove o log de erro se estiver vazio
+if [ ! -s "$LOGFILEERROR" ]; then
+  rm -f "$LOGFILEERROR"
+fi

@@ -35,10 +35,9 @@ CREATE TEMP TABLE tmp_import (LIKE $TABELA INCLUDING ALL);
 -- Copia o CSV para a temporária
 \copy tmp_import FROM '$ARQUIVO' DELIMITER '$CSV_DELIMITER' CSV HEADER;
 
--- Faz o upsert (insere ou ignora duplicados)
+-- Move tudo da temporária para a tabela final
 INSERT INTO $TABELA
-SELECT * FROM tmp_import
-ON CONFLICT DO NOTHING;
+SELECT * FROM tmp_import;
 EOF
 
 if [ $? -eq 0 ]; then

@@ -9,6 +9,7 @@
 !README.md
 !banco_psql_export.env
 !banco_psql_import.env
+!tabelas_ordenadas_completas.sh
 
 # Não ignora o diretório raiz (necessário para que os arquivos acima sejam rastreados)
 !*/

@@ -86,6 +86,9 @@ for FILE in "${FILES[@]}"; do
     exec 2> >(tee -a "$table_log"_error)
 
     psql <<EOF
+-- Desabilitar constraints temporariamente
+ALTER TABLE $TABELA DISABLE TRIGGER ALL;
+
 -- Cria tabela temporária com mesma estrutura
 CREATE TEMP TABLE tmp_import (LIKE $TABELA INCLUDING ALL);
 
@@ -95,6 +98,9 @@ CREATE TEMP TABLE tmp_import (LIKE $TABELA INCLUDING ALL);
 -- Move tudo da temporária para a tabela final
 INSERT INTO $TABELA
 SELECT * FROM tmp_import;
+
+-- Habilitar constraints novamente
+ALTER TABLE $TABELA ENABLE TRIGGER ALL;
 EOF
 
     if [ $? -eq 0 ]; then

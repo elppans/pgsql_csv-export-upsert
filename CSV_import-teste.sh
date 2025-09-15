@@ -43,3 +43,8 @@ SELECT count(*) AS linhas_importadas FROM tmp_import;
 -- remove a tabela temporária
 DROP TABLE tmp_import;
 EOF
+
+# Remove o log de erro se estiver vazio
+if [ ! -s "$LOGFILEERROR" ]; then
+  rm -f "$LOGFILEERROR"
+fi

@@ -27,3 +27,7 @@ dump_file="$HOME/${PGDATABASE}-schema-only_$(date +%d%m%y%H%M).dmp.gz"
 pg_dump --verbose --schema-only --no-owner --no-acl --inserts -d "$PGDATABASE" | gzip > "$dump_file"
 echo ">>> Dump concluído: $dump_file"
 
+# Remove o log de erro se estiver vazio
+if [ ! -s "$LOGFILEERROR" ]; then
+  rm -f "$LOGFILEERROR"
+fi

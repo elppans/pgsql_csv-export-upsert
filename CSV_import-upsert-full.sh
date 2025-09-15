@@ -86,11 +86,15 @@ for FILE in "${FILES[@]}"; do
     exec 2> >(tee -a "$table_log"_error)
 
     psql <<EOF
+-- Cria tabela temporária com mesma estrutura
 CREATE TEMP TABLE tmp_import (LIKE $TABELA INCLUDING ALL);
+
+-- Copia o CSV para a temporária
 \copy tmp_import FROM '$FILE' DELIMITER '$CSV_DELIMITER' CSV HEADER;
+
+-- Move tudo da temporária para a tabela final
 INSERT INTO $TABELA
-SELECT * FROM tmp_import
-ON CONFLICT DO NOTHING;
+SELECT * FROM tmp_import;
 EOF
 
     if [ $? -eq 0 ]; then

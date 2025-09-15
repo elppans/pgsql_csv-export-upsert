@@ -9,7 +9,10 @@ Scripts para exportar e importar dados em formato CSV no PostgreSQL com suporte 
 ### 📁 Pré-requisitos
 
 - PostgreSQL instalado e acessível via terminal (`psql`)
-- Arquivo `csv_banco.env` configurado com as variáveis de conexão:
+- Estar logado diretamente com o usuário `postgres` (**RECOMENDAVEL**)
+- Arquivo `banco_psql_export.env`  e `banco_psql_export.env` configurado com as variáveis de conexão:
+>Um é para apontar o banco que vei ser exportado e o outro para o banco que vais er importado
+
   ```bash
   PGUSER="usuario"
   PGPASSWORD="senha"
@@ -18,6 +21,7 @@ Scripts para exportar e importar dados em formato CSV no PostgreSQL com suporte 
   PGPORT="5432"
   CSV_DELIMITER=";"  # ou outro delimitador usado nos seus CSVs
   ```
+
 
 - Arquivo `tabelas.txt` contendo os nomes das tabelas a serem exportadas (uma por linha, sem espaços extras).  
   Exemplo disponível no repositório [sh-bd](https://github.com/elppans/sh-bd)

@@ -16,6 +16,28 @@ exec 2> >(tee -a "$LOGFILEERROR")
 
 source "$file_dir/banco_psql_import.env"
 
-file="$@"
+###############################################################################
+# Verificação de argumento
+###############################################################################
+if [ $# -ne 1 ]; then
+    echo "Erro: você deve especificar exatamente um arquivo .dmp.gz como argumento."
+    echo "Uso: ./$command arquivo.dmp.gz"
+    exit 1
+fi
 
+file="$1"
+
+if [[ ! "$file" =~ \.dmp\.gz$ ]]; then
+    echo "Erro: o arquivo especificado não possui a extensão .dmp.gz."
+    exit 1
+fi
+
+if [ ! -f "$file" ]; then
+    echo "Erro: o arquivo '$file' não existe."
+    exit 1
+fi
+
+###############################################################################
+# Importação
+###############################################################################
 gunzip -c "$file" | psql -d "$PGDATABASE"

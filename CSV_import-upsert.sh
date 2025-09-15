@@ -54,3 +54,8 @@ else
     echo ">>> ERRO na importação para '$TABELA'."
     exit 1
 fi
+
+# Remove o log de erro se estiver vazio
+if [ ! -s "$LOGFILEERROR" ]; then
+  rm -f "$LOGFILEERROR"
+fi

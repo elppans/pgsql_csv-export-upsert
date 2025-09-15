@@ -19,7 +19,7 @@ exec 1> >(tee -a "$LOGFILE")
 exec 2> >(tee -a "$LOGFILEERROR")
 
 # Define variáveis PostgreSQL
-source "$file_dir/csv_banco.env"
+source "$file_dir/banco_psql_export.env"
 
 while read tbl; do
     echo "Tentando copiar tabela $tbl ..."

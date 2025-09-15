@@ -31,7 +31,7 @@ LOGFILEERROR="$log_file"_error
 exec 1> >(tee -a "$LOGFILE")
 exec 2> >(tee -a "$LOGFILEERROR")
 
-source "$file_dir/csv_banco.env"
+source "$file_dir/banco_psql_import.env"
 
 ###############################################################################
 # Valida conexão

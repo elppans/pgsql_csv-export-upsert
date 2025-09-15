@@ -7,7 +7,8 @@
 !CSV_import-upsert-full.sh
 !CSV_import-upsert.sh
 !README.md
-!csv_banco.env
+!banco_psql_export.env
+!banco_psql_import.env
 
 # Não ignora o diretório raiz (necessário para que os arquivos acima sejam rastreados)
 !*/

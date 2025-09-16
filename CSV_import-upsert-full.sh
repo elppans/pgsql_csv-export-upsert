@@ -112,7 +112,7 @@ EOF
       echo "$TABELA:ERRO" >> "$file_dir/LOGGERAL/status.tmp"
     fi
 
-     # Remover log de erro se estiver vazio
+    # Remover log de erro se estiver vazio
     if [ ! -s "$table_log"_error ]; then
       rm -f "$table_log"_error
     fi

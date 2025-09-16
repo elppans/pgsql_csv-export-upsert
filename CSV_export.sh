@@ -33,5 +33,5 @@ done < tabelas.txt
 
 # Remove o log de erro se estiver vazio
 if [ ! -s "$LOGFILEERROR" ]; then
-  rm -f "$LOGFILEERROR"
+    rm -f "$LOGFILEERROR"
 fi

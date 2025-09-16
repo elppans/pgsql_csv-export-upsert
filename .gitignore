@@ -6,6 +6,8 @@
 !CSV_import-teste.sh
 !CSV_import-upsert-full.sh
 !CSV_import-upsert.sh
+!Dump_export-schema-only.sh
+!Dump_import.sh
 !README.md
 !banco_psql_export.env
 !banco_psql_import.env

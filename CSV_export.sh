@@ -30,3 +30,8 @@ while read tbl; do
         rm -f "${tbl}.csv"
     fi
 done < tabelas.txt
+
+# Remove o log de erro se estiver vazio
+if [ ! -s "$LOGFILEERROR" ]; then
+  rm -f "$LOGFILEERROR"
+fi

@@ -35,3 +35,5 @@ done < tabelas.txt
 if [ ! -s "$LOGFILEERROR" ]; then
     rm -f "$LOGFILEERROR"
 fi
+mkdir -p CSVDIR
+mv *.csv CSVDIR

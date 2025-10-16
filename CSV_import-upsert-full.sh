@@ -53,7 +53,7 @@ if [[ -z "$CSV_DELIMITER" ]]; then
   exit 1
 fi
 
-FILES=( $(find "$file_dir" -maxdepth 1 -type f -name '*.csv' | sort) )
+FILES=( $(find "$file_dir/CSVDIR" -maxdepth 1 -type f -name '*.csv' | sort) )
 TOTAL=${#FILES[@]}
 
 if [[ $TOTAL -eq 0 ]]; then

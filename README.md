@@ -3,7 +3,9 @@
 Scripts para exportar e importar dados em formato CSV no PostgreSQL com suporte a *upsert* e estrutura modular.
 >A melhor maneira de se usar a importação é em um banco restaurado com a estrutura dele mesmo.  
 >Ver um destes métodos: [Plain Text ou Comprimido](https://elppans.github.io/doc-bd/pg_dump#diferen%C3%A7a-entre-2-comandos-pg_dump)  
->Se for usar este método, é recomendável que adicione a tabela `tab_controle_versao` na primeira linha.  
+>Se for usar este método, é recomendável que adicione a tabela `tab_controle_versao` na primeira linha.
+>
+>>Leitura recomendada: [Export/Import Dump/CSV](https://elppans.github.io/doc-bd/Dump_de_Banco_export_e_import_de_Tabelas_em_CSV)
 ---
 
 ### 📁 Pré-requisitos

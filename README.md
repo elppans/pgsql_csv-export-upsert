@@ -28,6 +28,14 @@ Scripts para exportar e importar dados em formato CSV no PostgreSQL com suporte 
 - Arquivo `tabelas.txt` contendo os nomes das tabelas a serem exportadas (uma por linha, sem espaços extras).  
   Exemplo disponível no repositório [sh-bd](https://github.com/elppans/sh-bd)
 
+- TABELAS  
+>Acesso privado, somente quem é aprovado poderá ver as tabelas  
+
+Lista de Tabelas padrão: [tabelas.txt](https://github.com/elppans/sh-bd/blob/main/tabelas.txt)  
+Lista de Tabelas Mercadorias: [tabelas_mercadorias.txt](https://github.com/elppans/sh-bd/blob/main/tabelas_mercadorias.txt)  
+Lista de Tabelas Retiradas: [tabelas_retiradas.txt](https://github.com/elppans/sh-bd/blob/main/tabelas_retiradas.txt)  
+Todas as tabelas do banco: [tabelas_full.txt](https://github.com/elppans/sh-bd/blob/main/tabelas_full.txt)  
+
 ---
 
 ### 📤 Exportar tabelas para CSV

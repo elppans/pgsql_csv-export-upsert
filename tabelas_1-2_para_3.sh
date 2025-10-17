@@ -11,7 +11,6 @@ tr ' ' '\n' < tabela2.txt | sort -u > temp2.txt
 
 # Compara e remove palavras comuns
 comm -3 temp1.txt temp2.txt | sed 's/^\t//' > tabela3.txt
-comm -3 temp2.txt temp1.txt | sed 's/^\t//' > tabela4.txt
 
 # Limpa arquivos temporários
 rm temp1.txt temp2.txt

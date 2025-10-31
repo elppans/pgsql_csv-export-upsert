@@ -12,8 +12,8 @@ Scripts para exportar e importar dados em formato CSV no PostgreSQL com suporte 
 
 - PostgreSQL instalado e acessível via terminal (`psql`)
 - Estar logado diretamente com o usuário `postgres` (**RECOMENDAVEL**)
-- Arquivo `banco_psql_export.env`  e `banco_psql_export.env` configurado com as variáveis de conexão:
->Um é para apontar o banco que vei ser exportado e o outro para o banco que vais er importado
+- Arquivo `banco_psql_export.env`  e `banco_psql_import.env` configurado com as variáveis de conexão:
+>Um é para apontar o banco que vai ser exportado e o outro para o banco que vai ser importado
 
   ```bash
   PGUSER="usuario"
@@ -26,15 +26,18 @@ Scripts para exportar e importar dados em formato CSV no PostgreSQL com suporte 
 
 
 - Arquivo `tabelas.txt` contendo os nomes das tabelas a serem exportadas (uma por linha, sem espaços extras).  
-  Exemplo disponível no repositório [sh-bd](https://github.com/elppans/sh-bd)
+  Exemplo disponível no repositório [sh-bd](https://github.com/elppans/sh-bd) (privado)
 
-- TABELAS  
+- Lista de TABELAS  
 >Acesso privado, somente quem é aprovado poderá ver as tabelas  
 
 Lista de Tabelas padrão: [tabelas.txt](https://github.com/elppans/sh-bd/blob/main/tabelas.txt)  
+Lista de tabelas 2 (Lista para completar o padrão): [tabelas_2.txt](https://github.com/elppans/sh-bd/blob/main/tabelas_2.txt)  
+Lista de Tabelas Usuários: [tabelas_usuarios.txt](https://github.com/elppans/sh-bd/blob/main/tabelas_usuarios.txt)  
 Lista de Tabelas Mercadorias: [tabelas_mercadorias.txt](https://github.com/elppans/sh-bd/blob/main/tabelas_mercadorias.txt)  
-Lista de Tabelas Retiradas: [tabelas_retiradas.txt](https://github.com/elppans/sh-bd/blob/main/tabelas_retiradas.txt)  
+Lista de Tabelas Retiradas (Tabelas desnecessárias): [tabelas_retiradas.txt](https://github.com/elppans/sh-bd/blob/main/tabelas_retiradas.txt)  
 Todas as tabelas do banco: [tabelas_full.txt](https://github.com/elppans/sh-bd/blob/main/tabelas_full.txt)  
+Todas as tabelas do banco (Configurações, sem movimento, "**RECOMENDADO**"): [tabelas_full_nozan.txt](https://github.com/elppans/sh-bd/blob/main/tabelas_full_nozan.txt)  
 
 ---
 

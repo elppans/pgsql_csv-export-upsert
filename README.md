@@ -34,6 +34,7 @@ Scripts para exportar e importar dados em formato CSV no PostgreSQL com suporte 
 Lista de Tabelas padrão: [tabelas.txt](https://github.com/elppans/sh-bd/blob/main/tabelas.txt)  
 Lista de tabelas 2 (Lista para completar o padrão): [tabelas_2.txt](https://github.com/elppans/sh-bd/blob/main/tabelas_2.txt)  
 Lista de Tabelas Usuários: [tabelas_usuarios.txt](https://github.com/elppans/sh-bd/blob/main/tabelas_usuarios.txt)  
+>As 5 primeiras linhas são os principais e não podem ser removido da lista.  
 Lista de Tabelas Mercadorias: [tabelas_mercadorias.txt](https://github.com/elppans/sh-bd/blob/main/tabelas_mercadorias.txt)  
 Lista de Tabelas Retiradas (Tabelas desnecessárias): [tabelas_retiradas.txt](https://github.com/elppans/sh-bd/blob/main/tabelas_retiradas.txt)  
 Todas as tabelas do banco: [tabelas_full.txt](https://github.com/elppans/sh-bd/blob/main/tabelas_full.txt)  
